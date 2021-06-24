@@ -10,6 +10,7 @@ import { DataService } from '../services/data.service';
 })
 export class LoginComponent implements OnInit {
 
+  // login form validation with formbuilder validators
   loginForm= this.fb.group({
     phone:['',[Validators.required,Validators.pattern('[0-9]*')]],
     pswd:['', [Validators.required, Validators.pattern('[a-zA-Z0-9]*')]],
@@ -20,9 +21,11 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   
+  // login using backend
   login(){
     let phone = this.loginForm.value.phone;
     let pswd = this.loginForm.value.pswd;
+
     if(this.loginForm.valid){
       this.dataService.login(phone,pswd)
       .subscribe((result:any)=>{

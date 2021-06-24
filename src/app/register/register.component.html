@@ -1,12 +1,10 @@
 <div class="app">
-
     <div class="bg"></div>
-
+    <!-- register form -->
     <form (ngSubmit)="register()" [formGroup]="registerForm" >
         <header>
             <img src="assets/logo1.png">
         </header>
-
         <div class="inputs">
             <input type="phone" formControlName= "phone" name="phone" placeholder="phone number">
             <div *ngIf="(registerForm.get('phone')?.touched || registerForm.get('phone')?.dirty) && registerForm.get('phone')?.errors">invalid username</div>
@@ -16,6 +14,4 @@
         </div>
         <button type="submit">Continue</button>
     </form>
-
-
 </div>

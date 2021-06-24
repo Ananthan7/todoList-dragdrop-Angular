@@ -9,19 +9,24 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
+  // form validation with formbuilder validators
   registerForm= this.fb.group({
     phone:['',[Validators.required,Validators.pattern('[0-9]*')]],
     uname:['', [Validators.required, Validators.pattern('[a-zA-Z0-9]*')]],
     pswd:['', [Validators.required, Validators.pattern('[a-zA-Z0-9]*')]],
-
   })
+
   constructor(private dataService:DataService, private router:Router, private fb:FormBuilder) { }
 
   ngOnInit(): void {
   }
+
+  // register using backend
   register(){
 
     if(this.registerForm.valid){
+      
       let phone=this.registerForm.value.phone;
       let uname=this.registerForm.value.uname;
       let pswd=this.registerForm.value.pswd;
