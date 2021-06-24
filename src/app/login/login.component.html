@@ -1,0 +1,23 @@
+<div class="app">
+
+    <div class="bg"></div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <header>
+            <img src="assets/logo1.png">
+        </header>
+
+        <div class="inputs">
+            <input type="phone" formControlName= "phone" name="phone" placeholder="phone number">
+            <div *ngIf="(loginForm.get('phone')?.touched || loginForm.get('phone')?.dirty) && loginForm.get('phone')?.errors">invalid username</div>
+            <input type="password" formControlName= "pswd" name="" placeholder="password">
+            <div *ngIf="(loginForm.get('pswd')?.touched || loginForm.get('pswd')?.dirty) && loginForm.get('pswd')?.errors">invalid username</div>
+
+
+            <p class="light"><a href="register">Forgot password?</a></p>
+        </div>
+        <button type="submit">Continue</button>
+    </form>
+
+
+</div>

@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>welcome {{ user }}</h2> 
+    <div class="wrap">
+        <form [formGroup]="todoForm" (ngSubmit)="addTodo()">
+            <div class="add">
+                <input type="text" formControlName= "todos" class="addTerm" placeholder="type todos...">
+                <div class="refresh" *ngIf="(todoForm.get('todos')?.touched || todoForm.get('todos')?.dirty) && todoForm.get('todos')?.errors">error refresh please</div>
+                <button type="submit" class="addbutton">
+                    Add Todo
+                </button>
+            </div>
+        </form>
+        <div class="todolist">
+            <div class="hint">hint: refresh to see added Todos <div>drag and drop to change order</div></div>
+            <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="headtodo"><div>Order</div><div>Todos</div></div>
+                <div class="example-box" *ngFor="let result of userEvents;let i=index;" cdkDrag>
+                    <div class="order">{{i+1}}</div>
+                    {{result.todo}}
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="footer">
+        
+        <button (click)="logout()" class="addbutton">Logout</button>
+    </div>
+</div>
