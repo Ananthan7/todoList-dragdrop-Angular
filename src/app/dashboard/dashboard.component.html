@@ -20,6 +20,7 @@
                 <div class="ebox" *ngFor="let result of userEvents;let i=index;" cdkDrag>
                     <div class="order">{{i+1}}</div>
                     {{result.todo}}
+                    <!-- <div><button type="button" (click)="dltTodo(result.todo)">delete</button></div>  -->
                 </div>
             </div>
             

@@ -49,6 +49,7 @@ export class DashboardComponent implements OnInit {
       .subscribe((result:any)=>{
         if(result){
           alert(result.message)
+          location.reload();
         }
       },
       (result)=>{
@@ -71,5 +72,19 @@ export class DashboardComponent implements OnInit {
     moveItemInArray(this.userEvents, event.previousIndex, event.currentIndex);
   }
 
+  // dltTodo(todos){
+  //   var number=localStorage.getItem("number");
+   
+  //   this.dataService.dltTodo(number,todos)
+  //   .subscribe((result:any)=>{
+  //     if(result){
+  //       alert(result.message)
+  //       location.reload();
+  //     }
+  //   },
+  //   (result)=>{
+  //     alert(result.error.message)
+  //   })
+  // }
 
 }

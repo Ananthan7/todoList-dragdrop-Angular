@@ -42,5 +42,13 @@ export class DataService {
         }
      return this.http.post("http://localhost:3000/displayTodo",data,this.options);
    }
+
+  //  dltTodo(phoneNumber:any,todos:any){
+  //   const data={
+  //     phoneNumber,
+  //     todos
+  //       }
+  //       return this.http.post("http://localhost:8080/dltEvent/",data,this.options);
+  //  }
   
 }
