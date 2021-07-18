@@ -42,6 +42,9 @@ export class DataService {
         }
      return this.http.post("http://localhost:3000/displayTodo",data,this.options);
    }
+  displaySpinner(){
+     return this.http.get("https://jsonplaceholder.typicode.com/photos");
+   }
 
   //  dltTodo(phoneNumber:any,todos:any){
   //   const data={

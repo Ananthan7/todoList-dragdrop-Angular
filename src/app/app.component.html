@@ -2,13 +2,14 @@
     <!-- navbar -->
   <nav>
       <div class="nav-item">
-          <a href="">Todo List</a>
+          <a routerLink="">Todo List</a>
       </div>
       <div class="nav_item">
           <ul>
-              <li><a href="login">Login</a></li>
-              <li><a href="register/">Register</a></li>
-              <li><a href="dashboard/">Add Events</a></li>
+              <li><a *ngIf="phnNumber" routerLink="login">Login</a></li>
+              <li><a routerLink="register">Register</a></li>
+              <li><a routerLink="dashboard">Add Events</a></li>
+              <li><a routerLink="spinner">spinner</a></li>
           </ul>
       </div>
   </nav>

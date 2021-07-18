@@ -60,12 +60,11 @@ export class DashboardComponent implements OnInit {
 
 // logout session
   logout(){
-
     alert("do you want to logout")
     localStorage.removeItem("name");
     localStorage.removeItem("number");
+    localStorage.clear();
     this.router.navigateByUrl('login')
-
   }
   // dragdrop event
   drop(event: CdkDragDrop<string[]>) {

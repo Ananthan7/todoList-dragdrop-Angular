@@ -11,6 +11,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatCardModule} from '@angular/material/card';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 @NgModule({
   declarations: [
@@ -19,6 +24,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     RegisterComponent,
     LoginComponent,
     DashboardComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +33,10 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    DragDropModule
+    DragDropModule,
+    MatSliderModule,
+    MatCardModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
