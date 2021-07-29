@@ -6,8 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  phnNumber=true;
+  phnNumber: boolean =  true;
+
   constructor(){
+    this.checkNumber()
+  }
+
+  checkNumber(){
     let number = localStorage.getItem("number");
     if(number){
       this.phnNumber = !this.phnNumber

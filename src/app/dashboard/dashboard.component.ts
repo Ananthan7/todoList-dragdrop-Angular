@@ -10,46 +10,50 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  // fetched todos into userEvents
+  // userEvents for drag and drop
   userEvents:any;
-
   user:any;
+  number: any;
+  todos:any;
+
   // form validation with formbuilder validators
   todoForm= this.fb.group({
     todos:['', [Validators.required, Validators.pattern('[a-z A-Z 0-9]*')]]
   })
 
   constructor(private router:Router, private dataService:DataService, private fb:FormBuilder) {
+   
+   }
 
+  ngOnInit(): void {
+    this.displayTodo()
+  }
+
+  // display todos
+
+  displayTodo(){
     this.user=localStorage.getItem("name");
-    let number = localStorage.getItem("number");
-    // display todos in frontend
-    this.dataService.displayTodo(number)
+    this.number = localStorage.getItem("number");
+    this.dataService.displayTodo(this.number) // display todos in frontend
     .subscribe((result:any)=>{
       if(result){
-        this.userEvents=result.message
+        this.userEvents=result.data
       }
     },
     (result)=>{
       alert(result.error.message)
     })
-   }
-
-  ngOnInit(): void {
   }
 
   // add todos to api 
   addTodo(){
-
     let todo = this.todoForm.value.todos;
-    let phoneNumber=localStorage.getItem("number")
-
     if(this.todoForm.valid){
-      this.dataService.addTodo(todo,phoneNumber)
+      this.dataService.addTodo(todo,this.number)
       .subscribe((result:any)=>{
         if(result){
-          alert(result.message)
-          location.reload();
+          this.userEvents=result.data
+          this.todos = ""
         }
       },
       (result)=>{
@@ -60,12 +64,10 @@ export class DashboardComponent implements OnInit {
 
 // logout session
   logout(){
-    alert("do you want to logout")
-    localStorage.removeItem("name");
-    localStorage.removeItem("number");
     localStorage.clear();
     this.router.navigateByUrl('login')
   }
+
   // dragdrop event
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.userEvents, event.previousIndex, event.currentIndex);

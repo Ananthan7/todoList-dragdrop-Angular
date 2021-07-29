@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       this.dataService.login(phone,pswd)
       .subscribe((result:any)=>{
         if(result){
-          alert(result.message)
+          // alert(result.message)
           localStorage.setItem("name", result.name)
           localStorage.setItem("number", result.number)
           this.router.navigateByUrl('dashboard')

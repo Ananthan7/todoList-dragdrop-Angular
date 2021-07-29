@@ -7,7 +7,7 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./spinner.component.css']
 })
 export class SpinnerComponent implements OnInit {
-
+  isLoading=true;
   posts: any = []
   constructor(private dataService:DataService) { }
 
@@ -19,6 +19,7 @@ export class SpinnerComponent implements OnInit {
       .subscribe((result:any)=>{
         if(result){
           this.posts=result
+          this.isLoading=!this.isLoading;
           console.log(this.posts);
           
         }
